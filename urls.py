@@ -4,11 +4,17 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('qcdb.web.views',
     # Example:
     # (r'^qcdb/', include('qcdb.foo.urls')),
 
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
+    (r'^$', 'index'),
+    #    (r'^comics/$', 'comics'),
+    #(r'^comics/(?P<comic_id>\d+)/$', 'comic'),
+    #(r'^characters/$', 'characters'),
+    #(r'^characters/(?P<character_id>\d+)/$', 'character'),
+
+    # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

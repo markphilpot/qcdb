@@ -10,7 +10,7 @@ class Comic(models.Model):
 	guest = models.ForeignKey('Guest', null=True)
 	characters = models.ManyToManyField('Character')
 	locations = models.ManyToManyField('Location')
-	tags = models.ManyToManyField('Tag')
+	tags = models.CharField(max_length=200)
 
 class Character(models.Model):
 	name = models.CharField(max_length=100)
@@ -32,6 +32,3 @@ class Location(models.Model):
 class Event(models.Model):
 	description = models.CharField(max_length=200)
 	comic = models.ForeignKey('Event')
-
-class Tag(models.Model):
-	tag = models.CharField(max_length=100)
