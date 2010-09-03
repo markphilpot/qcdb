@@ -8,12 +8,24 @@
     <body>
         <div id="container">
             <header>
+            	<a href="/">
+            		<div id="title-top">Questionable Content</div>
+            		<div id="title-bottom">database</div>
+            	</a>
+            	<div id="menu">
+            		<a href="/comics">Comics</a> | <a href="/characters">Characters</a> | <a href="/locations">Locations</a> | <a href="/events">Events</a>
+            	</div>
+            	<div id="search">
+            	</div>
             </header>
 
             <div id="main">
+            	{% block main %}{% endblock %}
             </div>
 
             <footer>
+            	<p>Questionable Content -- Jeph Jaques</p>
+            	<p>Site by Mark Philpot</p>
             </footer>
 
         </div>

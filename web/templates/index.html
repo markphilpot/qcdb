@@ -1,3 +1,14 @@
 {% extends "base.html" %}
 
 {% block title %}Questionable Content Database{% endblock %}
+
+{% block main %}
+
+{% for comic in latest_comics %}
+<div class="comic">
+	<div class="comic_title">{{ comic.num }} :: {{ comic.title }}</div>
+	<div class="comic_location">{{ comic.location.name }}</div>
+</div>
+{% endfor %}
+
+{% endblock %}
