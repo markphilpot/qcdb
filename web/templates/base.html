@@ -3,19 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>{% block title %}Title{% endblock %}</title>
+        
+        <link rel="stylesheet" href="/media/css/style.css?v=1">
     </head>
 
     <body>
         <div id="container">
             <header>
             	<a href="/">
-            		<div id="title-top">Questionable Content</div>
+            		<div id="title-top"><span class="shift">Q</span>uestionable Content</div>
             		<div id="title-bottom">database</div>
             	</a>
             	<div id="menu">
             		<a href="/comics">Comics</a> | <a href="/characters">Characters</a> | <a href="/locations">Locations</a> | <a href="/events">Events</a>
             	</div>
             	<div id="search">
+            		<input type="text" id="search_box" size="75"/>
             	</div>
             </header>
 

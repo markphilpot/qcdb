@@ -6,10 +6,11 @@ class Comic(models.Model):
 	num = models.IntegerField()
 	title = models.CharField(max_length=200)
 	news = models.TextField(blank=True)
-	guest = models.ForeignKey('Guest', null=True, blank=True)
+	guest = models.ForeignKey('GuestAuthor', null=True, blank=True)
 	characters = models.ManyToManyField('Character')
 	locations = models.ManyToManyField('Location')
 	tags = models.CharField(max_length=200, blank=True)
+	dialog = models.ManyToManyField('Dialog', related_name="comic")
 	
 	def __unicode__(self):
 		return self.title
@@ -22,7 +23,6 @@ class Character(models.Model):
 		return self.name
 
 class Dialog(models.Model):
-	comic = models.ForeignKey('Comic')
 	characters = models.ManyToManyField('Character')
 	text = models.TextField()
 	panel = models.IntegerField()
@@ -30,17 +30,23 @@ class Dialog(models.Model):
 	
 	def __unicode__(self):
 		strList = []
-		for char in self.characters:
+		if self.comic.count() != 0:
+			strList.append("%i" % self.comic.all()[0].num)
+		else:
+			strList.append("__")
+		strList.append("::")
+		strList.append("%i-%i " % (self.panel,self.order))
+		for char in self.characters.all():
 			strList.append(char.name)
 			strList.append(", ")
 		strList.pop()
 		strList.append(" :: ")
-		strList.append(self.text)
+		strList.append(self.text[0:50])
 		return ''.join(strList)
 		
 			
 
-class Guest(models.Model):
+class GuestAuthor(models.Model):
 	name = models.CharField(max_length=100)
 	website = models.CharField(max_length=200, blank=True)
 	

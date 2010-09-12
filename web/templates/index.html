@@ -5,9 +5,19 @@
 {% block main %}
 
 {% for comic in latest_comics %}
-<div class="comic">
-	<div class="comic_title">{{ comic.num }} :: {{ comic.title }}</div>
-	<div class="comic_location">{{ comic.location.name }}</div>
+<div class="comic_summary">
+	<div class="number">{{ comic.num }}</div>
+	<div class="title">{{ comic.title }}</div>
+	{% for l in comic.locations.all %}
+		<div class="location">{{ l.name}}</div>
+	{% endfor %}
+	<div class="characters">
+		<ul>
+			{% for c in comic.characters.all %}
+			<li>{{ c.name }}</li>
+			{% endfor %}
+		<ul>
+	</div>
 </div>
 {% endfor %}
 
