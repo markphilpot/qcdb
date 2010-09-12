@@ -248,11 +248,61 @@ button {  width: auto; overflow: visible; }
 	top: -2em;
 	}
 
-.comic_summary {
+.comic {
+	width: 50em;
+	margin: 1em auto 3em;
 	border-width: 1px;
 	border-style: solid;
 	border-color: #000;
+	position: relative;
+	padding: 0.5em;
 	}
+	
+.comic .number {
+	position: absolute;
+	font-size: 5em;
+	z-index: -1;
+	color: #eee;
+	}
+	
+.comic .location {
+	float: right;
+	text-align: right;
+	margin-top: 0.5em;
+	}
+	
+.comic .location ul {
+	list-style-type: none;
+	}
+	
+.comic .title {
+	font-size: 2em;
+	font-style: italic;
+	}
+	
+.comic .characters {
+	margin-left: 2em;
+	}
+	
+.comic .characters ul {
+	list-style-type: none;
+	}
+	
+.comic .panel {
+	border-width: 1px;
+	border-style: dashed;
+	margin-top: 1em;
+	margin-left: 1.5em;
+	}
+
+.bubble {
+	margin-left: 2em;
+	}
+
+.spoken {
+	margin-top: 0.5em;
+	}
+	
 
 footer {
 	text-align: center;

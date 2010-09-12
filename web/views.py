@@ -12,3 +12,12 @@ def index(request):
         })
 
     return HttpResponse(t.render(c))
+
+def comic(request, comic_id):
+    comic = Comic.objects.get(id=comic_id)
+    t = loader.get_template('templates/comic.html')
+    c = Context({
+                 'comic': comic,
+                 })
+    
+    return HttpResponse(t.render(c))

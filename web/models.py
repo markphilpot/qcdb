@@ -28,6 +28,17 @@ class Dialog(models.Model):
 	panel = models.IntegerField()
 	order = models.IntegerField()
 	
+	class Meta:
+		ordering = ('panel','order')
+		
+	def charList(self):
+		strList = []
+		for char in self.characters.all():
+			strList.append(char.name)
+			strList.append(", ")
+		strList.pop()
+		return ''.join(strList)
+	
 	def __unicode__(self):
 		strList = []
 		if self.comic.count() != 0:

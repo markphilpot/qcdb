@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
+{% load extras %}
+
 {% block title %}Questionable Content Database{% endblock %}
 
 {% block main %}
 
-{% for comic in latest_comics %}
 <div class="comic">
 	<div class="number">{{ comic.num }}</div>
 	
@@ -25,7 +26,35 @@
 			{% endfor %}
 		</ul>
 	</div>
+	
+	{% assign last_panel 0 %}
+	<div class="dialog">
+	{% for d in comic.dialog.all %}
+		{% assign this_panel d.panel %}
+		
+		{% if forloop.first %}
+			<div class="panel">
+		{% else %}
+			{% ifnotequal this_panel last_panel %}
+				</div>
+				<div class="panel">
+			{% endifnotequal %}
+		{% endif %}
+		
+			<div class="spoken">
+				<div class="character">{{ d.charList }}</div>
+				<div class="bubble">{{ d.text }}</div>
+			</div>
+		
+		{% if forloop.last %}
+			</div>
+		{% endif %}
+		
+		{% assign last_panel this_panel %}
+	{% endfor %}
+	</div> <!-- /dialog -->
+	
+	
 </div>
-{% endfor %}
 
 {% endblock %}

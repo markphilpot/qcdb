@@ -11,7 +11,7 @@ urlpatterns = patterns('qcdb.web.views',
 
     (r'^$', 'index'),
     #(r'^comics/$', 'comics'),
-    #(r'^comics/(?P<comic_id>\d+)/$', 'comic'),
+    (r'^comics/(?P<comic_id>\d+)/$', 'comic'),
     #(r'^characters/$', 'characters'),
     #(r'^characters/(?P<character_id>\d+)/$', 'character'),
 
