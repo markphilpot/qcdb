@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load extras %}
+{% load partition %}
+
+{% block title %}Questionable Content Database{% endblock %}
+
+{% block main %}
+
+<div class="location">
+	
+	<div class="name">{{ location.name }}</div>
+	
+	<div class="comic_list">
+		<table>
+		{% for row in location.comic_set.all|columns:3 %}
+			<tr>
+			{% for comic in row %}
+				<td>{{ comic.num }} :: <a href="/comics/{{ comic.id }}">{{ comic.title }}</a></td>
+			{% endfor %}
+			</tr>
+		{% endfor %}		
+		</table>
+	</div>
+	
+</div>
+
+{% endblock %}

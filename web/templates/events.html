@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load partition %}
+
+{% block title %}Questionable Content Database{% endblock %}
+
+{% block main %}
+
+<div class="column_container">
+
+{% for column in events|rows:2 %}
+	<div class="column">
+	{% for e in column %}
+		<div class="entry"><a href="/comics/{{ e.comic.id }}">{{ e.description }}</a></div>
+	{% endfor %}
+	</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

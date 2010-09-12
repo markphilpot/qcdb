@@ -262,7 +262,7 @@ button {  width: auto; overflow: visible; }
 	position: absolute;
 	font-size: 5em;
 	z-index: -1;
-	color: #eee;
+	color: #ddd;
 	}
 	
 .comic .location {
@@ -288,11 +288,13 @@ button {  width: auto; overflow: visible; }
 	list-style-type: none;
 	}
 	
-.comic .panel {
+.panel {
 	border-width: 1px;
 	border-style: dashed;
 	margin-top: 1em;
 	margin-left: 1.5em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
 	}
 
 .bubble {
@@ -306,11 +308,41 @@ button {  width: auto; overflow: visible; }
 
 footer {
 	text-align: center;
-	margin-top: 2em;
+	padding-top: 2em;
+	clear: both;
 	}
 
+.column_container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 40em;
+	position: relative;
+	
+	}
+	
+.column_container .column {
+	width: 20em;
+	float: left;
+	text-align: center;
+	}
+	
+.character .name {
+	font-size: 2em;
+	font-style: italic;
+	}
 
-
+.character .bio {
+	margin-left: 2em;
+	}
+	
+.comic_list {
+	margin-top: 2em;
+	}
+	
+.location .name {
+	font-size: 2em;
+	font-style: italic;
+	}
 
 
 

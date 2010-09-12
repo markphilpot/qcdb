@@ -10,10 +10,13 @@ urlpatterns = patterns('qcdb.web.views',
     # (r'^qcdb/', include('qcdb.foo.urls')),
 
     (r'^$', 'index'),
-    #(r'^comics/$', 'comics'),
+    (r'^comics/$', 'comics'),
     (r'^comics/(?P<comic_id>\d+)/$', 'comic'),
-    #(r'^characters/$', 'characters'),
-    #(r'^characters/(?P<character_id>\d+)/$', 'character'),
+    (r'^characters/$', 'characters'),
+    (r'^characters/(?P<character_id>\d+)/$', 'character'),
+    (r'^locations/$', 'locations'),
+    (r'^locations/(?P<location_id>\d+)/$', 'location'),
+    (r'^events/$', 'events'),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
     # to INSTALLED_APPS to enable admin documentation:
