@@ -344,7 +344,10 @@ footer {
 	font-style: italic;
 	}
 
-
+a.external {
+	background: url("/media/img/external_link.png") no-repeat scroll right center transparent;
+	padding: 0 0.5em 0 0;
+	}
 
 
 /* 

@@ -77,3 +77,10 @@ def events(request):
                  })
     
     return HttpResponse(t.render(c))
+
+def autocomplete(request):
+    response = HttpResponse()
+    
+    return response
+    
+    

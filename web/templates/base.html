@@ -2,7 +2,13 @@
 <html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
         <title>{% block title %}Title{% endblock %}</title>
+        
+        <meta name="description" content="Questionable Content Database">
+        <meta name="author" content="Mark Philpot">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
         
         <link rel="stylesheet" href="/media/css/style.css?v=1">
     </head>
@@ -31,7 +37,31 @@
             	<p>Site by <a href="http://www.markphilpot.net">Mark Philpot</a> || <a href="http://www.mcstudios.net">MC Studios</a></p>
             </footer>
 
-        </div>
+        </div> <!-- /container -->
 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+		<script>!window.jQuery && document.write('<script src="/media/js/jquery-1.4.1.min.js"><\/script>')</script>
+		<script type="text/javascript" src="/media/js/jquery-autocomplete/jquery.autocomplete.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+				$("#search_box").autocomplete("search.php", {
+					minChars: 3,
+					formatItem: function(item) {
+				    	return item[0];
+				    }
+				  }).result(
+						function(event, item) {
+							if(item[1] != undefined) {
+								//alert(item[1]);
+					  			//location.href = item[1];
+					  			window.open(item[1], "_blank");
+							}
+				});		
+				
+			});
+		</script>
+		
     </body>
 </head>

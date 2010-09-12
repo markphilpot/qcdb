@@ -9,7 +9,7 @@
 <div class="column_container">
 
 {% for column in characters|rows:2 %}
-	<div class="characters">
+	<div class="column">
 	{% for c in column %}
 		<div class="entry"><a href="/characters/{{ c.id }}">{{ c.name }}</a></div>
 	{% endfor %}

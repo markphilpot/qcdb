@@ -17,6 +17,8 @@ urlpatterns = patterns('qcdb.web.views',
     (r'^locations/$', 'locations'),
     (r'^locations/(?P<location_id>\d+)/$', 'location'),
     (r'^events/$', 'events'),
+    
+    #(r'^autocomplete/$', 'autocomplete')
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
     # to INSTALLED_APPS to enable admin documentation:
