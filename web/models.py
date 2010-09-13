@@ -13,7 +13,7 @@ class Comic(models.Model):
 	dialog = models.ManyToManyField('Dialog', related_name="comic")
 
 	def __unicode__(self):
-        return "%i :: %s" % (self.num, self.title)
+		return "%i :: %s" % (self.num, self.title)
 
 class Character(models.Model):
 	name = models.CharField(max_length=100)
@@ -28,8 +28,8 @@ class Dialog(models.Model):
 	panel = models.IntegerField()
 	order = models.IntegerField()
 
-    #class Meta:
-    #	ordering = ('panel','order')
+	#class Meta:
+	#	ordering = ('panel','order')
 
 	def charList(self):
 		strList = []
@@ -74,5 +74,5 @@ class Event(models.Model):
 	description = models.CharField(max_length=200)
 	comic = models.ForeignKey('Comic')
 
-    def __unicode__(self):
-        return self.description
+	def __unicode__(self):
+		return self.description
