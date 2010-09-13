@@ -11,14 +11,14 @@ class Comic(models.Model):
 	locations = models.ManyToManyField('Location')
 	tags = models.CharField(max_length=200, blank=True)
 	dialog = models.ManyToManyField('Dialog', related_name="comic")
-	
+
 	def __unicode__(self):
-		return self.title
+        return "%i :: %s" % (self.num, self.title)
 
 class Character(models.Model):
 	name = models.CharField(max_length=100)
 	bio = models.TextField(blank=True)
-	
+
 	def __unicode__(self):
 		return self.name
 
@@ -27,10 +27,10 @@ class Dialog(models.Model):
 	text = models.TextField()
 	panel = models.IntegerField()
 	order = models.IntegerField()
-	
-	class Meta:
-		ordering = ('panel','order')
-		
+
+    #class Meta:
+    #	ordering = ('panel','order')
+
 	def charList(self):
 		strList = []
 		for char in self.characters.all():
@@ -38,7 +38,7 @@ class Dialog(models.Model):
 			strList.append(", ")
 		strList.pop()
 		return ''.join(strList)
-	
+
 	def __unicode__(self):
 		strList = []
 		if self.comic.count() != 0:
@@ -54,22 +54,25 @@ class Dialog(models.Model):
 		strList.append(" :: ")
 		strList.append(self.text[0:50])
 		return ''.join(strList)
-		
-			
+
+
 
 class GuestAuthor(models.Model):
 	name = models.CharField(max_length=100)
 	website = models.CharField(max_length=200, blank=True)
-	
+
 	def __unicode__(self):
 		return self.name
 
 class Location(models.Model):
 	name = models.CharField(max_length=100)
-	
+
 	def __unicode__(self):
 		return self.name
 
 class Event(models.Model):
 	description = models.CharField(max_length=200)
-	comic = models.ForeignKey('Event')
+	comic = models.ForeignKey('Comic')
+
+    def __unicode__(self):
+        return self.description

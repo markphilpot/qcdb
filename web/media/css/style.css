@@ -256,6 +256,7 @@ button {  width: auto; overflow: visible; }
 	border-color: #000;
 	position: relative;
 	padding: 0.5em;
+    min-height: 5em;
 	}
 	
 .comic .number {
