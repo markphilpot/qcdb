@@ -297,6 +297,11 @@ button {  width: auto; overflow: visible; }
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 	}
+	
+div.partial {
+	border-top: none;
+	border-bottom: none;
+	}
 
 .bubble {
 	margin-left: 2em;
@@ -363,6 +368,12 @@ a.external {
 	font-size: 1.2em;
 	margin-top: 0.25em;
 	margin-bottom: 0.25em;
+	}
+	
+.highlight {
+	font-weight: bold;
+	font-style: italic;
+	color: #003399;
 	}
 
 

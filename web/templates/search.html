@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load extras %}
+
+{% block title %}Questionable Content Database{% endblock %}
+
+{% block main %}
+
+{% for comic, dialogs in comicDict.items %}
+<div class="comic">
+	<div class="number">{{ comic.num }}</div>
+	
+	<div class="location">
+		<ul>
+			{% for l in comic.locations.all %}
+				<li><a href="/locations/{{ l.id }}">{{ l.name}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	
+	<div class="title"><a href="/comics/{{ comic.id }}">{{ comic.title }}</a></div>
+	
+	<p>...</p>
+	
+	
+	<div class="dialog">
+		{% for dialog in dialogs %}
+		<div class="panel partial">
+		
+			<div class="spoken">
+				<div class="character">{{ dialog.charList }}</div>
+				<div class="bubble">{{ dialog.text|highlight:searchString }}</div>
+			</div>
+		
+		</div>
+		{% endfor %}
+	</div> <!-- /dialog -->
+	
+	
+	<p>...</p>
+	
+</div>
+{% endfor %}
+
+{% endblock %}

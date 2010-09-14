@@ -17,6 +17,7 @@ urlpatterns = patterns('qcdb.web.views',
     (r'^locations/$', 'locations'),
     (r'^locations/(?P<location_id>\d+)/$', 'location'),
     (r'^events/$', 'events'),
+    (r'^search/$', 'search'),
     
     #(r'^autocomplete/$', 'autocomplete')
 

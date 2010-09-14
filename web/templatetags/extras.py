@@ -4,6 +4,7 @@ Created on Sep 11, 2010
 @author: mphilpot
 '''
 from django import template
+from django.utils.safestring import mark_safe
 
 class AssignNode(template.Node):
     def __init__(self, name, value):
@@ -33,3 +34,6 @@ def do_assign(parser, token):
 register = template.Library()
 register.tag('assign', do_assign)
 
+@register.filter
+def highlight(text, word):
+    return mark_safe(text.replace(word, "<span class='highlight'>%s</span>" % word))

@@ -5,6 +5,7 @@ from qcdb.web.models import Comic
 from qcdb.web.models import Character
 from qcdb.web.models import Location
 from qcdb.web.models import Event
+from qcdb.web.models import Dialog
 
 def index(request):
     latest_comics = Comic.objects.all().order_by('-num')[:5]
@@ -78,9 +79,43 @@ def events(request):
     
     return HttpResponse(t.render(c))
 
-def autocomplete(request):
-    response = HttpResponse()
+def search(request):
+    searchString = request.POST['search_box']
     
-    return response
+    import sphinxsearch
+    
+    client = sphinxsearch.SphinxClient()
+    client.SetServer('localhost', 3312)
+    
+    result = client.Query(searchString)
+    
+    comicDict = {}
+    
+    for match in result['matches']:
+        dialog = Dialog.objects.get(id=match['id'])
+        comic = dialog.comic.all()[0]
+        
+        # Make sure the search string is present
+        # this will happen if the match is the title
+        # perfomance penalty... fix later.
+        import re
+        
+        if not re.compile( searchString ).search(dialog.text):
+            if comicDict.has_key(comic):
+                continue
+        
+        if comicDict.has_key(comic):
+            comicDict[comic].append(dialog)
+        else:
+            comicDict[comic] = [dialog]
+    
+    t = loader.get_template('templates/search.html')
+    c = Context({
+                 'comicDict': comicDict,
+                 'searchString': searchString,
+                 })
+    
+    return HttpResponse(t.render(c))
+    
     
     

@@ -24,7 +24,7 @@
             		<a href="/comics">Comics</a> | <a href="/characters">Characters</a> | <a href="/locations">Locations</a> | <a href="/events">Events</a>
             	</div>
             	<div id="search">
-            		<input type="text" id="search_box" size="75"/>
+            		<form id="search_form" action="/search/" method="post"><input type="text" id="search_box" name="search_box" size="75"/><input type="submit" value="Search"/></form>
             	</div>
             </header>
 
@@ -40,28 +40,7 @@
         </div> <!-- /container -->
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-		<script>!window.jQuery && document.write('<script src="/media/js/jquery-1.4.1.min.js"><\/script>')</script>
-		<script type="text/javascript" src="/media/js/jquery-autocomplete/jquery.autocomplete.js"></script>
-		
-		<script type="text/javascript">
-			$(document).ready(function(){
-				
-				$("#search_box").autocomplete("search.php", {
-					minChars: 3,
-					formatItem: function(item) {
-				    	return item[0];
-				    }
-				  }).result(
-						function(event, item) {
-							if(item[1] != undefined) {
-								//alert(item[1]);
-					  			//location.href = item[1];
-					  			window.open(item[1], "_blank");
-							}
-				});		
-				
-			});
-		</script>
+		<script>!window.jQuery && document.write('<script src="/media/js/jquery-1.4.1.min.js"><\/script>')</script>		
 		
     </body>
-</head>
+</html>
