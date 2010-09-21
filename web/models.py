@@ -18,6 +18,12 @@ class Comic(models.Model):
 class Character(models.Model):
 	name = models.CharField(max_length=100)
 	bio = models.TextField(blank=True)
+	TYPE_CHOICES = (
+				('MAJOR', 'Major'),
+				('MINOR', 'Minor'),
+				('EXTRA', 'Extra'),
+				)
+	type = models.CharField(max_length=5, choices=TYPE_CHOICES, default='MAJOR')
 
 	def __unicode__(self):
 		return self.name
