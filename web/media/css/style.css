@@ -200,7 +200,10 @@ button {  width: auto; overflow: visible; }
  /* Primary Styles
     Author: Mark Philpot
  */
- 
+header a {
+    text-decoration: none;
+}
+
 .shift {
 	position:relative;
 	font-size: 200%;

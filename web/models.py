@@ -10,7 +10,7 @@ class Comic(models.Model):
 	characters = models.ManyToManyField('Character')
 	locations = models.ManyToManyField('Location')
 	tags = models.CharField(max_length=200, blank=True)
-	dialog = models.ManyToManyField('Dialog', related_name="comic")
+	dialog = models.ManyToManyField('Dialog', related_name="comic", null=True, blank=True)
 
 	def __unicode__(self):
 		return "%i :: %s" % (self.num, self.title)
